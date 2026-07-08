@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammad Bilal Khan | AI Software Engineer Portfolio</title>
+<style>
+:root{
+  --bg:#070a14; --panel:rgba(255,255,255,.09); --panel2:rgba(255,255,255,.14);
+  --line:rgba(255,255,255,.14); --text:#f8fafc; --muted:#cbd5e1; --soft:#94a3b8;
+  --cyan:#67e8f9; --blue:#60a5fa; --violet:#a78bfa; --green:#86efac; --amber:#facc15;
+  --shadow:0 24px 80px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--text);background:var(--bg);overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(circle at 15% 8%,rgba(103,232,249,.20),transparent 28%),
+    radial-gradient(circle at 88% 18%,rgba(167,139,250,.20),transparent 31%),
+    radial-gradient(circle at 50% 88%,rgba(96,165,250,.12),transparent 35%),
+    linear-gradient(135deg,#070a14,#0f172a 48%,#111827);
+}
+body:after{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.glass{
+  background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);border-radius:28px;box-shadow:var(--shadow);
+  transition:.35s ease;
+}
+.glass:hover{transform:translateY(-7px);background:var(--panel2);border-color:rgba(103,232,249,.45)}
+header{
+  position:sticky;top:0;z-index:50;background:rgba(7,10,20,.72);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{
+  width:50px;height:50px;border-radius:18px;display:grid;place-items:center;font-weight:950;
+  background:linear-gradient(135deg,rgba(103,232,249,.28),rgba(167,139,250,.24));
+  border:1px solid rgba(255,255,255,.16)
+}
+.brand h3{font-size:18px}.brand p{font-size:12px;color:var(--soft);margin-top:2px}
+nav ul{list-style:none;display:flex;gap:27px;color:var(--muted);font-size:14px;font-weight:700}
+nav a{position:relative}nav a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:.25s}nav a:hover:after{width:100%}
+
+.hero{min-height:calc(100vh - 78px);display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:center;padding:70px 0}
+.pill{
+  display:inline-flex;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);color:#cffafe;font-size:13px;font-weight:850
+}
+h1{font-size:clamp(44px,7vw,82px);line-height:1.02;letter-spacing:-3px;margin:23px 0}
+.gradient{background:linear-gradient(90deg,#67e8f9,#60a5fa,#a78bfa,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;line-height:1.85;color:var(--muted);max-width:730px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{
+  min-height:54px;padding:0 22px;border-radius:18px;display:inline-flex;align-items:center;justify-content:center;
+  font-weight:850;border:1px solid transparent;transition:.28s
+}
+.btn-primary{background:var(--cyan);color:#06202c;box-shadow:0 18px 50px rgba(103,232,249,.16)}
+.btn-outline{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
+.btn:hover{transform:translateY(-5px)}
+
+.hero-panel{padding:28px}
+.panel-top{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;
+}
+.avatar{
+  width:66px;height:66px;border-radius:22px;background:linear-gradient(135deg,var(--cyan),var(--violet));
+  display:grid;place-items:center;color:#06111f;font-weight:950;font-size:24px
+}
+.status{color:var(--green);font-size:13px;font-weight:850}
+.summary-card{padding:22px;border-radius:22px;background:rgba(2,6,23,.45);border:1px solid rgba(255,255,255,.12);margin-bottom:16px}
+.summary-card h2{font-size:25px;margin-bottom:10px}.summary-card p{color:var(--muted);line-height:1.75}
+.impact-list{display:grid;gap:12px}
+.impact-item{
+  display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center;padding:16px;border-radius:18px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.11);transition:.3s
+}
+.impact-item:hover{transform:translateX(6px);background:rgba(103,232,249,.1)}
+.metric{font-size:26px;font-weight:950;color:var(--cyan);text-align:center}
+.impact-item strong{display:block;margin-bottom:4px}.impact-item span{color:var(--muted);font-size:14px;line-height:1.45}
+
+.section{padding:78px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:34px}
+.label{color:var(--cyan);text-transform:uppercase;letter-spacing:4px;font-size:13px;font-weight:950;margin-bottom:13px}
+.title{font-size:clamp(32px,4.2vw,48px);line-height:1.08;letter-spacing:-1.5px}.section-head p{color:var(--muted);max-width:560px;line-height:1.75}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+.card{padding:30px}.icon{width:58px;height:58px;border-radius:20px;display:grid;place-items:center;background:rgba(103,232,249,.13);border:1px solid rgba(103,232,249,.16);font-size:15px;font-weight:900;letter-spacing:.5px;color:#cffafe;margin-bottom:22px}
+.kicker{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(103,232,249,.13);color:#a5f3fc;font-size:12px;font-weight:900;margin-bottom:16px}
+.card h3{font-size:22px;margin-bottom:14px}.card p,.card li{color:var(--muted);line-height:1.75}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px}.about-box{padding:36px}
+.focus-list{display:grid;gap:12px;margin-top:20px}.focus{padding:15px 16px;border-radius:17px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+
+.timeline{display:grid;gap:20px}.timeline-item{display:grid;grid-template-columns:180px 1fr;gap:22px;padding:27px}
+.time{color:var(--cyan);font-weight:900;font-size:14px;line-height:1.55}.timeline-item h3{font-size:22px;margin-bottom:7px}.timeline-item h4{color:#bfdbfe;margin-bottom:13px}.timeline-item ul{padding-left:20px;color:var(--muted);line-height:1.8}
+
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}.project{position:relative;overflow:hidden}
+.tags{display:flex;flex-wrap:wrap;gap:12px}.tag{padding:13px 17px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.13);font-weight:750;font-size:14px;color:#e2e8f0;transition:.28s}.tag:hover{transform:translateY(-5px);background:rgba(103,232,249,.12);border-color:rgba(103,232,249,.5)}
+.small-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.small-tags span{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);color:var(--muted);font-size:12px}
+
+.contact{padding:56px 34px;text-align:center;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06)),radial-gradient(circle at 50% 0%,rgba(103,232,249,.15),transparent 38%)}
+.contact p{max-width:760px;margin:18px auto 0;color:var(--muted);font-size:18px;line-height:1.8}.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px}
+
+.reveal{opacity:0;transform:translateY(34px);transition:.8s}.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:950px){nav ul{display:none}.hero,.about-grid{grid-template-columns:1fr}.cards-3,.project-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.timeline-item{grid-template-columns:1fr}}
+@media(max-width:560px){.impact-item{grid-template-columns:1fr;text-align:left}.metric{text-align:left}.actions,.contact-links{flex-direction:column}.btn{width:100%}.card,.about-box,.timeline-item,.contact{padding:24px}h1{letter-spacing:-1.5px}.brand p{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#" class="brand"><div class="logo">MBK</div><div><h3>Muhammad Bilal Khan</h3><p>Software Engineer • AI Systems • Full-Stack Engineering</p></div></a>
+    <nav><ul><li><a href="#about">About</a></li><li><a href="#impact">Impact</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="container hero">
+  <div class="reveal">
+    <span class="pill">AI Software Engineer • Full-Stack Engineering • Backend Systems</span>
+    <h1>Turning <span class="gradient">AI ideas into fast, reliable products</span></h1>
+    <p class="lead">I build AI agents, scalable APIs, real-time voice workflows, ML applications, and cloud-ready full-stack systems with TypeScript, Python, Next.js, GraphQL, FastAPI, LangGraph, Docker, AWS, and GCP.</p>
+    <div class="actions"><a class="btn btn-primary" href="#projects">Explore Projects →</a><a class="btn btn-outline" href="mailto:hikue.primary@gmail.com">Contact Me</a></div>
+  </div>
+
+  <aside class="hero-panel glass reveal">
+    <div class="panel-top">
+      <div class="avatar">MBK</div>
+      <div><strong>Muhammad Bilal Khan</strong><br><span class="status">Open to Software and AI Engineering roles</span></div>
+    </div>
+
+    <div class="summary-card">
+      <h2>Engineering Impact</h2>
+      <p>Each metric below is tied to a real product outcome I helped deliver.</p>
+    </div>
+
+    <div class="impact-list">
+      <div class="impact-item"><div class="metric">45%</div><div><strong>Faster website performance</strong><span>Rebuilt a legacy site with Next.js, TypeScript, TailwindCSS, responsive design, and image optimization.</span></div></div>
+      <div class="impact-item"><div class="metric">40%</div><div><strong>Lower API query latency</strong><span>Designed scalable GraphQL APIs with TypeScript, Node.js, and Apollo Server for real-time analytics.</span></div></div>
+      <div class="impact-item"><div class="metric">50%</div><div><strong>Faster document uploads</strong><span>Built an asynchronous FastAPI pipeline streaming files to AWS S3 with background workers.</span></div></div>
+      <div class="impact-item"><div class="metric">Top 3</div><div><strong>AI hackathon performance</strong><span>Placed top 3 at two AI hackathons with Python, FFmpeg, OpenCV, and GenAI applications.</span></div></div>
+    </div>
+  </aside>
+</section>
+
+<section id="about" class="section container reveal">
+  <div class="about-grid">
+    <div class="about-box glass">
+      <p class="label">About</p>
+      <h2 class="title">Product-focused engineer with strong AI and backend depth</h2>
+    </div>
+    <div class="about-box glass">
+      <p>I build full-stack and AI-powered applications with a strong focus on measurable performance, production readiness, and clean developer workflows. My experience spans AI agents, observability, real-time voice pipelines, GraphQL APIs, asynchronous backend systems, Dockerized services, and modern web applications.</p>
+      <div class="focus-list">
+        <div class="focus">✓ AI agents with LangGraph, LangChain, MCPs, Gemini, DeepGram and LiveKit</div>
+        <div class="focus">✓ Full-stack products with Next.js, React, TypeScript, TailwindCSS and Node.js</div>
+        <div class="focus">✓ Backend systems with GraphQL, Apollo Server, FastAPI, Redis, MongoDB and AWS S3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact" class="section container reveal">
+  <div class="section-head"><div><p class="label">Core Strengths</p><h2 class="title">Clear value through measurable results</h2></div><p>My work focuses on what matters most in production software: product performance, backend scalability, AI systems, and reliable delivery.</p></div>
+  <div class="cards-3">
+    <article class="card glass"><span class="kicker">Performance</span><div class="icon">FS</div><h3>Fast User Experiences</h3><p>Improved website speed, session duration, and upload workflows through optimized frontend architecture and async backend processing.</p></article>
+    <article class="card glass"><span class="kicker">AI Systems</span><div class="icon">AI</div><h3>Agentic Workflows</h3><p>Built and observed AI agent workflows using LangGraph, Langfuse, MCPs, Gemini, DeepGram, and LiveKit.</p></article>
+    <article class="card glass"><span class="kicker">Backend</span><div class="icon">API</div><h3>Scalable APIs</h3><p>Designed GraphQL APIs, caching workflows, and containerized backend services for real-time data and product analytics.</p></article>
+  </div>
+</section>
+
+<section id="experience" class="section container reveal">
+  <div class="section-head"><div><p class="label">Experience</p><h2 class="title">Experience built around measurable outcomes</h2></div><p>Each role highlights the problem solved, the tools used, and the measurable result.</p></div>
+  <div class="timeline">
+    <article class="timeline-item glass"><div class="time">Aug 2025 – Mar 2026<br>Connectome</div><div><h3>Software Engineer</h3><h4>New York, NY</h4><ul><li>Improved page load speed by 45% and user session duration by 62% by rebuilding the legacy website with Next.js, TypeScript and TailwindCSS.</li><li>Reduced redundant AI agent tool calls by 35% and average response time by 20% by deploying Langfuse in Docker and tracing backend workflows.</li></ul></div></article>
+    <article class="timeline-item glass"><div class="time">Jul 2025 – Oct 2025<br>EduTrend</div><div><h3>Software Development Intern</h3><h4>Hoboken, NJ</h4><ul><li>Reduced query latency by 40% by designing a scalable GraphQL API with TypeScript, Node.js and Apollo Server.</li><li>Led 5+ backend interns to model MongoDB data, implement Redis caching and package services with Docker.</li><li>Cut ticket resolution time by 45% by configuring GitHub Actions integrations and documenting a repeatable workflow.</li></ul></div></article>
+    <article class="timeline-item glass"><div class="time">May 2025 – Aug 2025<br>Connectome</div><div><h3>Software Engineer Intern</h3><h4>New York, NY</h4><ul><li>Built a real-time voice agent pipeline using LiveKit, DeepGram, Gemini and TypeScript.</li><li>Enabled 10+ workflows using Python, LangGraph and MCPs for contextual tool selection.</li><li>Reduced multi-file upload time by 50% with an async FastAPI and AWS S3 pipeline.</li></ul></div></article>
+    <article class="timeline-item glass"><div class="time">Jul 2024 – Mar 2025<br>HeadStarter AI</div><div><h3>Software Engineer Fellow</h3><h4>Long Island City, NY</h4><ul><li>Launched 5 AI full-stack applications using RAG and GenAI pipelines with OpenRouter, OpenAI, Pinecone and HuggingFace.</li><li>Placed top 3 at 2 internal AI hackathons with an auto-caption generator using Python, FFmpeg and OpenCV.</li></ul></div></article>
+  </div>
+</section>
+
+<section id="projects" class="section container reveal">
+  <div class="section-head"><div><p class="label">Projects</p><h2 class="title">Selected AI and ML projects</h2></div><p>These projects show how I applied AI, machine learning, backend engineering, and full-stack development to solve practical problems.</p></div>
+  <div class="project-grid">
+    <article class="card glass"><span class="kicker">Healthcare AI</span><div class="icon">ML</div><h3>Brain Tumor Classification</h3><p>Classified 1,000 MRI scans into 3 tumor categories and delivered structured clinical summaries through a Streamlit interface.</p><div class="small-tags"><span>Python</span><span>TensorFlow</span><span>Keras</span><span>Streamlit</span></div></article>
+    <article class="card glass"><span class="kicker">FinTech ML</span><div class="icon">ML</div><h3>US-Bank Churn Prediction</h3><p>Evaluated churn risk for 30k+ banking customers using ML models and AI-assisted qualitative reporting.</p><div class="small-tags"><span>Scikit-Learn</span><span>Flask</span><span>Groq AI</span><span>Vercel</span></div></article>
+    <article class="card glass"><span class="kicker">GenAI Apps</span><div class="icon">AI</div><h3>AI Full-Stack Applications</h3><p>Built 5 AI applications using RAG and GenAI pipelines with OpenRouter, OpenAI, Pinecone and HuggingFace.</p><div class="small-tags"><span>RAG</span><span>OpenAI</span><span>Pinecone</span><span>HuggingFace</span></div></article>
+  </div>
+</section>
+
+<section id="skills" class="section container reveal">
+  <div class="section-head"><div><p class="label">Skills</p><h2 class="title">Technical toolbox</h2></div></div>
+  <div class="tags">
+    <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">C#</span><span class="tag">Bash</span><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Spring Boot</span><span class="tag">FastAPI</span><span class="tag">GraphQL</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Langfuse</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">CI/CD</span>
+  </div>
+</section>
+
+<section id="contact" class="section container reveal">
+  <div class="contact glass">
+    <p class="label">Contact</p>
+    <h2 class="title">Let’s build intelligent, scalable software together</h2>
+    <p>I’m available for Software Engineer, AI Engineer, Full-Stack Engineer, Backend Engineer, and Cloud/DevOps-focused engineering opportunities.</p>
+    <div class="contact-links"><a class="btn btn-primary" href="mailto:hikue.primary@gmail.com">hikue.primary@gmail.com</a><a class="btn btn-outline" href="tel:6475097475">(+1) 647-509-7475</a><a class="btn btn-outline" href="#">LinkedIn</a><a class="btn btn-outline" href="#">GitHub</a><a class="btn btn-outline" href="#">Personal Site</a></div>
+  </div>
+</section>
+</main>
+
+
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+function revealOnScroll(){for(const item of reveals){if(item.getBoundingClientRect().top<window.innerHeight-110)item.classList.add("show")}}
+window.addEventListener("scroll",revealOnScroll);window.addEventListener("load",revealOnScroll);
+document.querySelectorAll(".glass").forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+    const r=card.getBoundingClientRect();
+    card.style.background=`radial-gradient(circle at ${e.clientX-r.left}px ${e.clientY-r.top}px, rgba(103,232,249,0.15), rgba(255,255,255,0.10) 38%)`;
+  });
+  card.addEventListener("mouseleave",()=>{card.style.background=""});
+});
+</script>
+</body>
+</html>
